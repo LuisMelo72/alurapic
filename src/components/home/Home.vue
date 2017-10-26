@@ -33,7 +33,7 @@
         data() {
 
             return {
-                titulo: 'Bem vindo a Terra Média',
+                titulo: 'Home',
                 fotos: [],
                 filtro: ''
             }
