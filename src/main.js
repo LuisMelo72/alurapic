@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     routes,
-    mode: 'history' /* o servidor deve retornar por padrao sem a index.html independente da url */
+    mode: 'history' /* o servidor deve retornar por padrao sempre a index.html independente da url */
 });
 
 new Vue({
