@@ -19,7 +19,7 @@
 
         components: {
 
-            'menu-sistema': Menu
+            'menu-sistema': Menu,
 
         },
 
