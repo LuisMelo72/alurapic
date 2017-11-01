@@ -1,17 +1,6 @@
 <template>
   <div class="corpo">
 
-      <md-card>
-          <md-card-header>
-              <div class="md-title">
-                  Material Design With Vue.js 2 Demo
-              </div>
-              <div class="md-subhead">
-                by CodingTheSmartWay.com
-              </div>
-          </md-card-header>
-      </md-card>
-
       <nav>
           <ul>
               <li v-for="route of routes">
@@ -22,7 +11,10 @@
           </ul>
       </nav>
 
-      <router-view></router-view>
+      <transition name="pagina">
+          <router-view></router-view>
+      </transition>
+
 
   </div>
 </template>
@@ -54,6 +46,14 @@
         font-family: Helvetica, sans-serif;
         width: 96%;
         margin: auto;
+    }
+
+    .pagina-enter, .pagina-leave-active {
+        opacity: 0;
+    }
+
+    .pagina-enter-active, .pagina-leave-active {
+        transition: opacity .4s;
     }
 
 </style>
