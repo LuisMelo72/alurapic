@@ -10,7 +10,7 @@
             <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
                 <meu-painel :titulo="foto.titulo">
                     <imagem-responsiva :url="foto.url" :titulo="foto.alt" />
-                    <botao type="button" label="remover" />
+                    <meu-botao type="button" label="remover" @click.native="remove(foto)" />
                 </meu-painel>
             </li>
         </ul>
@@ -30,7 +30,7 @@
 
             'meu-painel': Painel,
             'imagem-responsiva': ImagemResponsiva,
-            'botao': Botao
+            'meu-botao': Botao
 
         },
         data() {
@@ -59,6 +59,19 @@
             this.$http.get('http://localhost:3000/v1/fotos')
                 .then(res => res.json())
                 .then(fotos => this.fotos = fotos, err => console.log(err));
+
+        },
+        methods:{
+
+            remove(foto){
+
+                if(confirm('Confirma operação?')){
+
+                    alert('Remover a foto ' + foto.titulo);
+
+                }
+
+            }
 
         }
     }
