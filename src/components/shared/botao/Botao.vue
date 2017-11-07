@@ -1,11 +1,26 @@
 <template>
-    <button class="botao botao-perigo" :type="type">{{ label }}</button>
+    <button @click="disparaAcao()" class="botao botao-perigo" :type="type">{{ label }}</button>
 </template>
 
 <script>
     export default {
 
         props: ['type', 'label'],
+
+        methods: {
+
+            disparaAcao(){
+
+                if(confirm('Confirma operação?')){
+
+                    this.$emit('botaoAtivado');
+
+                }
+
+            }
+
+        }
+
     }
 </script>
 
