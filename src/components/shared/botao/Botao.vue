@@ -5,13 +5,23 @@
 <script>
     export default {
 
-        props: ['type', 'label'],
+        props: ['type', 'label', 'confirmacao'],
 
         methods: {
 
             disparaAcao(){
 
-                if(confirm('Confirma operação?')){
+                console.log(typeof(this.confirmacao));
+
+                if(this.confirmacao){
+
+                    if(confirm('Confirma operação?')){
+
+                        this.$emit('botaoAtivado');
+
+                    }
+
+                } else {
 
                     this.$emit('botaoAtivado');
 
