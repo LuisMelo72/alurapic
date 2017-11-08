@@ -5,13 +5,27 @@
 <script>
     export default {
 
-        props: ['type', 'label', 'confirmacao', 'estilo'],
+        //['type', 'label', 'confirmacao', 'estilo'],
+        props: {
+
+            type: {
+                required: true,
+                type: String
+            },
+
+            label: {
+                required: true,
+                type: String
+            },
+
+            confirmacao: Boolean,
+            estilo: String
+
+        },
 
         methods: {
 
             disparaAcao(){
-
-                console.log(typeof(this.confirmacao));
 
                 if(this.confirmacao){
 
