@@ -1,11 +1,11 @@
 <template>
-    <button @click="disparaAcao()" class="botao botao-perigo" :type="type">{{ label }}</button>
+    <button @click="disparaAcao()" class="botao" :class="estiloDoBotao" :type="type">{{ label }}</button>
 </template>
 
 <script>
     export default {
 
-        props: ['type', 'label', 'confirmacao'],
+        props: ['type', 'label', 'confirmacao', 'estilo'],
 
         methods: {
 
@@ -24,6 +24,25 @@
                 } else {
 
                     this.$emit('botaoAtivado');
+
+                }
+
+            }
+
+        },
+
+        computed: {
+
+            estiloDoBotao(){
+
+                if((this.estilo == 'padrao')
+                    || !this.estilo){
+
+                    return 'botao-padrao';
+
+                } else if(this.estilo == 'perigo'){
+
+                    return 'botao-perigo';
 
                 }
 
