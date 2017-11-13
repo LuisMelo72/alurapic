@@ -5,6 +5,8 @@ import VueMaterial from 'vue-material';
 import VueRouter from 'vue-router';
 import {routes} from './routes';
 
+import './directives/Transform';
+
 // registrando o módulo/plugin no global view object
 Vue.use(VueResource);
 Vue.use(VueMaterial);
