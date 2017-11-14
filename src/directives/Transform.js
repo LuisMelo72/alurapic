@@ -11,9 +11,36 @@ Vue.directive('meu-transform', {
 
         el.addEventListener('dblclick', function () {
 
-            eixo += 90;
+            let incremento = binding.value || 90;
+            let animacao = binding.modifiers.animacao;
+            let reverte = binding.modifiers.reverte;
 
-            this.style.transform = `rotate(${eixo}deg)`;
+            // quando informar na directiva varios valores
+            // EX: v-meu-transform="{incremento: 15, animacao: true}"
+           /* if(binding.value){
+
+                incremento = binding.value.incremento;
+                animacao = binding.value.animacao;
+
+            }*/
+
+           if(reverte){
+
+               eixo -= incremento;
+
+           } else {
+
+               eixo += incremento;
+
+           }
+
+           this.style.transform = `rotate(${eixo}deg)`;
+
+           if(animacao){
+
+                this.style.transition = 'transform 0.5s';
+
+            }
 
         });
 
