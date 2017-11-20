@@ -3,7 +3,10 @@
  */
 import Vue from 'vue';
 
-Vue.directive('meu-transform', {
+// pode-se criar usando o Vue.directive tambem
+// Vue.directive('meu-transform', {
+
+export default {
 
     bind(el, binding, vnode){
 
@@ -61,4 +64,4 @@ Vue.directive('meu-transform', {
 
     }
 
-});
+};
