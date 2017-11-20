@@ -14,6 +14,7 @@ Vue.directive('meu-transform', {
             let incremento = binding.value || 90;
             let animacao = binding.modifiers.animacao;
             let reverte = binding.modifiers.reverte;
+            let efeito;
 
             // quando informar na directiva varios valores
             // EX: v-meu-transform="{incremento: 15, animacao: true}"
@@ -24,17 +25,31 @@ Vue.directive('meu-transform', {
 
             }*/
 
-           if(reverte){
+           console.log(binding.arg);
 
-               eixo -= incremento;
+           if(!binding.arg
+                || binding.arg == 'rotate'){
 
-           } else {
+               if(reverte){
 
-               eixo += incremento;
+                   eixo -= incremento;
+
+               } else {
+
+                   eixo += incremento;
+
+               }
+
+               efeito = `rotate(${eixo}deg)`;
+
+           } else if(binding.arg == 'scale'){
+
+               efeito = `scale(${incremento})`;
 
            }
 
-           this.style.transform = `rotate(${eixo}deg)`;
+
+           this.style.transform = efeito;
 
            if(animacao){
 
