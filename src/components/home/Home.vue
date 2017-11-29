@@ -4,6 +4,8 @@
 
         <h1 class="centralizado">{{ titulo }}</h1>
 
+        <p class="centralizado" v-show="mensagem">{{ mensagem }}</p>
+
         <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="informe parte do título">
 
         <ul class="lista-fotos">
@@ -51,7 +53,8 @@
             return {
                 titulo: 'Home',
                 fotos: [],
-                filtro: ''
+                filtro: '',
+                mensagem: ''
             }
 
         },
@@ -78,7 +81,14 @@
 
             remove(foto){
 
-                alert('Remover a foto ' + foto.titulo);
+                this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+                    .then(() => {
+                        this.mensagem = 'Foto removida com sucesso';
+                    },
+                    erro => {
+                        this.mensagem = 'Não foi possível remover a foto';
+                        console.log(erro);
+                    });
 
             }
 
