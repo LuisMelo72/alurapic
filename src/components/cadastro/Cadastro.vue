@@ -75,7 +75,7 @@
 
             grava(){
 
-                this.$http.post('http://localhost:3000/v1/fotos', this.foto)
+                this.$http.post('v1/fotos', this.foto)
                     .then(() => this.foto = new Foto(), erro => console.log(erro));
 
             }

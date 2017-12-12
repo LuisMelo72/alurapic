@@ -72,7 +72,7 @@
         },
         created() {
 
-            this.$http.get('http://localhost:3000/v1/fotos')
+            this.$http.get('v1/fotos')
                 .then(res => res.json())
                 .then(fotos => this.fotos = fotos, err => console.log(err));
 
@@ -81,7 +81,7 @@
 
             remove(foto){
 
-                this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+                this.$http.delete(`v1/fotos/${foto._id}`)
                     .then(() => {
 
                         let indice = this.fotos.indexOf(foto);
